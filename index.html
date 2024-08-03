@@ -19,76 +19,14 @@
         <button id="hide-modal-button" onclick="hide_modal();">X</button>   
         <div class="swiper-container main-slider">
             <div id="video" class="swiper-wrapper">
-              <!-- <div class="swiper-slide">
-                <iframe
-                  src="https://player.vimeo.com/video/950620908?h=0beb300d8a"
-                  width="640"
-                  height="360"
-                  frameborder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-              <div class="swiper-slide">
-                <iframe
-                  src="https://player.vimeo.com/video/969143882?h=0beb300d8a"
-                  width="640"
-                  height="360"
-                  frameborder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-              <div class="swiper-slide">
-                <iframe
-                  src="https://player.vimeo.com/video/929869481?h=0beb300d8a"
-                  width="640"
-                  height="360"
-                  frameborder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-              <div class="swiper-slide">
-                <iframe
-                  src="https://player.vimeo.com/video/981226911?h=0c0eccf018"
-                  width="640"
-                  height="360"
-                  frameborder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div> -->
+             
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
           </div>
-          <div class="swiper-container swiper-container-thumbs">
+          <div id="preview-container" class="swiper-container swiper-container-thumbs">
             <div id="preview" class="swiper-wrapper">
-              <!-- <div class="swiper-slide">
-                <img
-                  src="https://i.vimeocdn.com/video/1859289665-fa36d36e2d021534d4713078f278cb1e4f81962b9ce514e2a35eeb1ebd721e2e-d_780x439"
-                  alt="Video 1"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="https://i.vimeocdn.com/video/1882455613-02f3b9045eaf338d6ebbad574ac2ae288bd67aa887875963156396f77379b456-d_780x439"
-                  alt="Video 2"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="https://i.vimeocdn.com/video/1826276019-652a39e0cbc372f7cedee5977aece8e01942daa931da013847b677d753b0107d-d_780x439"
-                  alt="Video 3"
-                />
-              </div>
-              <div class="swiper-slide">
-                <img
-                  src="https://i.vimeocdn.com/video/1896841007-9595dc2f11af837542b5cb287e8033fe63eb8a0efb3c0c9de1248072a3255f12-d_780x439"
-                  alt="Video 4"
-                />
-              </div> -->
+
             </div>
           </div>
     </div>
@@ -97,9 +35,11 @@
     
         const videoList = [
             {url: "https://player.vimeo.com/video/981226911?h=0c0eccf018", thumbnail: "https://i.vimeocdn.com/video/1896841007-9595dc2f11af837542b5cb287e8033fe63eb8a0efb3c0c9de1248072a3255f12-d_780x439"},
-            {url: "https://player.vimeo.com/video/981226911?h=0c0eccf018", thumbnail: "https://i.vimeocdn.com/video/1896841007-9595dc2f11af837542b5cb287e8033fe63eb8a0efb3c0c9de1248072a3255f12-d_780x439"},
-            {url: "https://player.vimeo.com/video/981226911?h=0c0eccf018", thumbnail: "https://i.vimeocdn.com/video/1896841007-9595dc2f11af837542b5cb287e8033fe63eb8a0efb3c0c9de1248072a3255f12-d_780x439"},
-            {url: "https://player.vimeo.com/video/981226911?h=0c0eccf018", thumbnail: "https://i.vimeocdn.com/video/1896841007-9595dc2f11af837542b5cb287e8033fe63eb8a0efb3c0c9de1248072a3255f12-d_780x439"}
+            {url: "https://player.vimeo.com/video/969143882?h=0beb300d8a", thumbnail: "https://i.vimeocdn.com/video/1882455613-02f3b9045eaf338d6ebbad574ac2ae288bd67aa887875963156396f77379b456-d_780x439"},
+            {url: "https://player.vimeo.com/video/929869481?h=0beb300d8a", thumbnail: "https://i.vimeocdn.com/video/1826276019-652a39e0cbc372f7cedee5977aece8e01942daa931da013847b677d753b0107d-d_780x439"},
+            {url: "https://player.vimeo.com/video/929869481?h=0beb300d8a", thumbnail: "https://i.vimeocdn.com/video/1826276019-652a39e0cbc372f7cedee5977aece8e01942daa931da013847b677d753b0107d-d_780x439"},
+            {url: "https://player.vimeo.com/video/950620908?h=0beb300d8a", thumbnail: "https://i.vimeocdn.com/video/1859289665-fa36d36e2d021534d4713078f278cb1e4f81962b9ce514e2a35eeb1ebd721e2e-d_780x439"},
+            
         ]
         
         var swiperThumbs = new Swiper(".swiper-container-thumbs", {
