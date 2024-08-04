@@ -10,6 +10,8 @@ body{
     z-index: 1;
     position: absolute;
     text-align: right;
+    align-items: center;
+    flex-direction: column;
     top: 0;
 }
 .swiper-container {
@@ -18,46 +20,80 @@ body{
     margin: auto;
 }
 .swiper-container-thumbs {
-  width: 80%;
-  height: 100px;
-  margin: auto;
-  margin-top: 20px;
+  width: calc(100% - 60px);
+  height: auto;
 }
 .swiper-slide {
+
   display: flex;
   justify-content: center;
   align-items: center;
 
 }
-.swiper-slide img {
-  width: 150px;
-  margin-left: calc(calc(100% - 150px) / 2);
-  cursor: pointer;
-  resize: contain;
-  padding: 2px;
-}
 
-.swiper-slide-thumb-active img {
-  border-style: solid;
-  border-width: 2px ;
-  border-color: white;
+/* .thumbs-slides{
+  width: 265px !important;
+  height: 150px !important;
+} */
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;  
+  object-fit: cover;
+  cursor: pointer;
 }
+/* 
+.swiper-slide-thumb-active  {
+  border-style: solid;
+  border-width: 0.5px ;
+  border-color: white;
+} */
 
 
 #show-modal-button{
     background-color: white;
-    border: 2px solid black;
+    border: 2px solid black; 
     padding: 5px 10px;
     border-radius: 15px;
     z-index: -1;
 }
 
-#preview{
+.main-slider{
+  aspect-ratio: 1200/675;
+  width: 100%;
+  height: auto;
+}
+
+
+#preview-container{
+  border: none;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.main-wrapper{
+  max-width: 1200px;
   width: fit-content;
+  overflow: hidden;
+}
+
+.thumbs-container{
+  max-width: 73%;
+  margin: 30px 0;
+  display: flex;
+  gap: 10px;
+
+}
+
+.swiper-button-prev, .swiper-button-next{
+  position: relative !important;
 }
 
 .swiper-button-prev::after, .swiper-button-next::after{
   color: white;
+  line-height: 0!important;
+  --swiper-navigation-size: 20px;
 }
 
 #show-modal-button:hover{
@@ -70,7 +106,9 @@ body{
     color: white;
     border: none;
     font-size: 20px;
-    
+    width: 100%;
+    text-align: right;
+    padding: 10px 30px;
 }
 #hide-modal-button:hover{
     color: gray;
@@ -80,10 +118,21 @@ body{
     display: none;
 }
 .show{
-    display: block !important;
+    display: flex !important;
 }
 
 iframe{
-    width: 100%;
+  width: 100%;
+  height: 100%;
+}
 
+@media (min-width: 768px) {
+  .main-wrapper{
+    max-width: 1200px;
+  }
+}
+@media (max-width: 1200px) {
+  .main-wrapper {
+     width: 90%;
+  }
 }

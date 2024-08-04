@@ -17,39 +17,61 @@
     <button id="show-modal-button" onclick="show_modal();">Press to open modal</button>
     <div id="modal" class="hide">
         <button id="hide-modal-button" onclick="hide_modal();">X</button>   
-        <div class="swiper-container main-slider">
+
+        <div class="main-wrapper">
+          <div class="swiper-container main-slider">
             <div id="video" class="swiper-wrapper">
-             
+              
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
           </div>
+        </div>
+
+        <div class="thumbs-container">
+          <div class="swiper-button-prev swiper-button"></div>
           <div id="preview-container" class="swiper-container swiper-container-thumbs">
             <div id="preview" class="swiper-wrapper">
-
+              
             </div>
           </div>
+          <div class="swiper-button-next"></div>
+        </div>
+
     </div>
     <script>
     
     
         const videoList = [
-            {url: "https://player.vimeo.com/video/981226911?h=0c0eccf018", thumbnail: "https://i.vimeocdn.com/video/1896841007-9595dc2f11af837542b5cb287e8033fe63eb8a0efb3c0c9de1248072a3255f12-d_780x439"},
-            {url: "https://player.vimeo.com/video/969143882?h=0beb300d8a", thumbnail: "https://i.vimeocdn.com/video/1882455613-02f3b9045eaf338d6ebbad574ac2ae288bd67aa887875963156396f77379b456-d_780x439"},
-            {url: "https://player.vimeo.com/video/929869481?h=0beb300d8a", thumbnail: "https://i.vimeocdn.com/video/1826276019-652a39e0cbc372f7cedee5977aece8e01942daa931da013847b677d753b0107d-d_780x439"},
-            {url: "https://player.vimeo.com/video/929869481?h=0beb300d8a", thumbnail: "https://i.vimeocdn.com/video/1826276019-652a39e0cbc372f7cedee5977aece8e01942daa931da013847b677d753b0107d-d_780x439"},
-            {url: "https://player.vimeo.com/video/950620908?h=0beb300d8a", thumbnail: "https://i.vimeocdn.com/video/1859289665-fa36d36e2d021534d4713078f278cb1e4f81962b9ce514e2a35eeb1ebd721e2e-d_780x439"},
+            {url: "https://www.youtube.com/embed/sRNwCJlb59Q", thumbnail: "https://img.youtube.com/vi/sRNwCJlb59Q/0.jpg"},
+            {url: "https://www.youtube.com/embed/ATW6RvBbn9o", thumbnail: "https://img.youtube.com/vi/ATW6RvBbn9o/0.jpg"},
+            {url: "https://www.youtube.com/embed/rilFfbm7j8k", thumbnail: "https://img.youtube.com/vi/rilFfbm7j8k/0.jpg"},
+            {url: "https://www.youtube.com/embed/mP0s5s0i20E", thumbnail: "https://img.youtube.com/vi/mP0s5s0i20E/0.jpg"},
+            {url: "https://www.youtube.com/embed/5e1SYt1DEo0", thumbnail: "https://img.youtube.com/vi/5e1SYt1DEo0/0.jpg"},
+            {url: "https://www.youtube.com/embed/7aQY67Uzee0", thumbnail: "https://img.youtube.com/vi/7aQY67Uzee0/0.jpg"}
             
         ]
-        
+
+
         var swiperThumbs = new Swiper(".swiper-container-thumbs", {
-            slidesPerView: 3,
-            spaceBetween: 10,
+            slidesPerView: 2,
+            spaceBetween: 3,
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
+            breakpoints: {
+              0: { 
+                slidesPerView: 2
+              },
+              767: {
+                slidesPerView: 3,
+              },
+              1024: {
+                slidesPerView: 5,
+            
+              }  
+            }
           });
     
           var swiperMain = new Swiper(".main-slider", {
+    
             navigation: {
               nextEl: ".swiper-button-next",
               prevEl: ".swiper-button-prev",
@@ -58,8 +80,9 @@
               swiper: swiperThumbs,
             },
           });
+          console.log(swiperThumbs);
         
-       
+
         // document.getElementById('model').appendChild
         function show_modal() {
             document.getElementById("modal").classList.add("show")
@@ -69,8 +92,7 @@
                 wrapper.classList.add("swiper-slide")
                 const video = document.createElement("iframe")
                 video.setAttribute("src", vid.url)
-                video.setAttribute("width", "640")
-                video.setAttribute("height", "360")
+   
                 video.setAttribute("frameborder", "0")
                 video.setAttribute("allow", "autoplay; fullscreen; picture-in-picture")
                 wrapper.appendChild(video)
@@ -78,9 +100,9 @@
 
                 const wrapper_preview = document.createElement("div")
                 wrapper_preview.classList.add("swiper-slide")
+                wrapper_preview.classList.add("thumbs-slides")
                 const thumb = document.createElement("img")
                 thumb.setAttribute("src", vid.thumbnail)
-                // thumb.setAttribute("alt", `Video + {document.getElementById("prewview").length}`)
                 wrapper_preview.appendChild(thumb)
                 document.getElementById("preview").appendChild(wrapper_preview)
             });
