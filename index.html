@@ -14,27 +14,37 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <body>
+    
     <button id="show-modal-button" onclick="show_modal();">Press to open modal</button>
     <div id="modal" class="hide">
+      <!-- <div class=""> -->
         <button id="hide-modal-button" onclick="hide_modal();">X</button>   
-
-        <div class="main-wrapper">
-          <div class="swiper-container main-slider">
-            <div id="video" class="swiper-wrapper">
-              
+        <div class="main-container">
+          <div class="swiper-button-prev desktop-button"></div>
+          <div class="desktop-replacement hide"></div>
+          <div class="main-wrapper">
+            <div class="swiper-container main-slider">
+              <div id="video" class="swiper-wrapper">
+                
+              </div>
             </div>
           </div>
+          <div class="swiper-button-next desktop-button"></div>
+          <!-- </div class="desktop-replacement hide"> -->
         </div>
 
         <div class="thumbs-container">
-          <div class="swiper-button-prev swiper-button"></div>
+          <div class="swiper-button-prev mobile-button"></div>
+
           <div id="preview-container" class="swiper-container swiper-container-thumbs">
             <div id="preview" class="swiper-wrapper">
               
             </div>
           </div>
-          <div class="swiper-button-next"></div>
+
+          <div class="swiper-button-next mobile-button"></div>
         </div>
+      <!-- </div> -->
 
     </div>
     <script>
@@ -49,6 +59,7 @@
             {url: "https://www.youtube.com/embed/7aQY67Uzee0", thumbnail: "https://img.youtube.com/vi/7aQY67Uzee0/0.jpg"}
             
         ]
+
 
 
         var swiperThumbs = new Swiper(".swiper-container-thumbs", {
